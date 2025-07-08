@@ -13,7 +13,16 @@ class Compra(models.Model):
     status = models.IntegerField(choices=StatusCompra.choices,  default=StatusCompra.CARRINHO)
 
     def __str__(self):
-        return f'({self.id}) {self.usuario} {self.status}'
+        return f'({self.id}) {self.usuario} {self.get_status_display()}'
+    
+
+    @property
+    def total(self):
+         total = 0
+         for item in self.itens.all():
+             total += item.livro.preco * item.quantidade
+         return total
+        #return sum(item.livro.preco * item.quantidade for item in self.itens.all())
     
 class ItensCompra(models.Model):
     compra = models.ForeignKey(Compra, on_delete=models.CASCADE, related_name="itens")
