@@ -7,6 +7,7 @@ from core.models import Livro
 from core.serializers import (
     LivroAlterarPrecoSerializer,
     LivroRetrieveSerializer,
+    LivroListSerializer,
     LivroSerializer,
 )
 
