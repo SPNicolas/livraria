@@ -24,10 +24,8 @@ class CompraViewSet(ModelViewSet):
         if usuario.groups.filter(name='administradores'):
             return Compra.objects.all()
         return Compra.objects.filter(usuario=usuario)
-
-    queryset = Compra.objects.all()
-    serializer_class = CompraSerializer
-
+    
+    
     @action(detail=False, methods=['get'])
     def relatorio_vendas_mes(self, request):
         agora = timezone.now()
