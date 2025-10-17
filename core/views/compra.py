@@ -5,6 +5,7 @@ from django.utils import timezone
 from rest_framework.decorators import action
 from core.serializers import CompraSerializer, CompraCreateUpdateSerializer, CompraListSerializer
 from core.models import Compra
+from django.db import transaction
 ...
 class CompraViewSet(ModelViewSet):
     queryset = Compra.objects.order_by('-id')
