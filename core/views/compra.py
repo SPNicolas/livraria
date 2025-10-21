@@ -6,6 +6,8 @@ from rest_framework.decorators import action
 from core.serializers import CompraSerializer, CompraCreateUpdateSerializer, CompraListSerializer
 from core.models import Compra
 from django.db import transaction
+from drf_spectacular.utils import extend_schema
+
 ...
 class CompraViewSet(ModelViewSet):
     queryset = Compra.objects.order_by('-id')

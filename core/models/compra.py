@@ -37,6 +37,7 @@ class ItensCompra(models.Model):
     livro = models.ForeignKey(Livro, on_delete=models.PROTECT, related_name="+")
     quantidade = models.IntegerField(default=1)
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    livro = models.ForeignKey(Livro, on_delete=models.PROTECT, related_name='itens_compra')
 
     def __str__(self):
         return f'({self.id}) {self.livro}  {self.quantidade}'
